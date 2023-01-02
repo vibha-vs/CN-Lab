@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main() {
+    // Write C++ code here
+    int bsize=0,capacity=0,psize=0,rate=0;
+    char ans='y';
+    
+    cout << "Ënter the bucket capacity: ";
+    cin>>capacity;
+    
+    cout<<"\nEnter the leakage rate: ";
+    cin>>rate;
+    
+    while(ans=='y' || ans=='Y'){
+        cout<<"\n\nEnter the packet size: ";
+        cin>>psize;
+        
+        if((bsize+psize)>capacity)
+        cout<<"\nBuffer is full at the moment";
+            
+        else if((bsize+psize)<=capacity)
+        bsize+=psize;
+        
+        bsize-=rate;
+        cout<<"\nThe remaining bucket capacity: "<<bsize;
+        
+        cout<<"\nDo you wish to continue adding packets? (y/n): ";
+        cin>>ans;
+    }
+    return 0;
+}
